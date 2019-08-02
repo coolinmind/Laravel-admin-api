@@ -1,0 +1,18 @@
+{
+    "name": "pl/laravel-admin-api",
+    "authors": [
+        {
+            "name": "ericsh",
+            "email": "1104534940@qq.com"
+        }
+    ],
+    "require": {
+        "spatie/laravel-permission": "^2.37",
+        "mews/purifier": "^2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Pl\\LaravelAdminApi": "src/"
+        }
+    }
+}
