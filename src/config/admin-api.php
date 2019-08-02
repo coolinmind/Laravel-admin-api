@@ -35,10 +35,12 @@ return [
     'simulation' => [
         /**
          * 模拟用户信息
-         * 有值时表示当前登录用户是次用户
+         * 有值时表示当前登录用户是此用户
          * 没有值时需要正常登录
+         * 1 是系统管理员
+         * 2 是管理员
          */
-//        'user' => json_decode('{"id":1,"username":"admin","name":"\u7ba1\u7406\u5458","avatar":"https:\/\/eaznuftest.beats-digital.com\/storage\/images\/2019\/07\/30\/bcovr1q5wtOAvXwLx3UDBuPJMLvQ9eZJ258I4Hzs.jpeg","created_at":"2019-07-30 13:17:32","updated_at":"2019-07-30 14:49:56"}',true),
-        'user' => '',
+        'user' => 1,
+//        'user' => '',
     ]
 ];

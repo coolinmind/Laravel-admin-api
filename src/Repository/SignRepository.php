@@ -69,14 +69,15 @@ class SignRepository
      */
     public function get_admin_auth()
     {
-        $user = config('admin-api.simulation.user');
-        if($user === '')
+        $u_id = config('admin-api.simulation.user');
+        $user = '';
+        if($u_id === '')
         {
             $user = Auth::guard('admin_api')->user();
         }
-        if($user)
+        if($u_id && $user == '')
         {
-            $user = Admin_user::where('id',$user['id'])->first();
+            $user = Admin_user::where('id',$u_id)->first();
         }
         return $user;
     }

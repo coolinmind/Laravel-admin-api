@@ -9,15 +9,21 @@
 <a href="http://laravel-admin-api.plasr.cn/">使用文档</a>
 </p>
 
+
+# 安装配置管理
+
+## 安装
+
 ### 安装
 ```
 composer require pl/laravel-admin-api
 ```
+
 ### 服务添加
 
 > `config/app.php`
 
-```$xslt
+```
 'providers' => [
     ......
     Pl\LaravelAdminApi\LaravelAdminApiProvider::class,
@@ -25,17 +31,23 @@ composer require pl/laravel-admin-api
 ```
 
 ### 发布文件
-```$xslt
+```
 php artisan vendor:publish --provider="Pl\LaravelAdminApi\LaravelAdminApiProvider"
 ```
 
 ### 迁移数据库
-```$xslt
+```
 php artisan migrate
 ```
 
-### 配置
-#### 1.登录验证
+### 数据填充
+```
+php artisan db:seed --class=LaravelAdminApiSeeder
+```
+
+## 配置
+
+### 登录验证
 > `config/auth.php`
 ```
 'guards' => [
@@ -55,7 +67,7 @@ php artisan migrate
 ],
 ```
 
-#### 2.`POST`提交验证取消
+### `POST`提交验证取消
 > `VerifyCsrfToken.php`
 ```
 protected $except = [
@@ -63,7 +75,7 @@ protected $except = [
 ];
 ```
 
-#### 3.参数验证拦截
+### 参数验证拦截
 >`Handler.php`
 ```
 use Illuminate\Validation\ValidationException;

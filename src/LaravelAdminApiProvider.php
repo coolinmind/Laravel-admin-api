@@ -44,14 +44,16 @@ class LaravelAdminApiProvider extends ServiceProvider
         // 配置文件迁移
         $this->publishes([
             __DIR__.'/config/admin-api.php' => config_path('admin-api.php'),
-            __DIR__.'/database/migrations' => database_path('migrations'),
+            __DIR__.'/config/permission.php' => config_path('permission.php'),
+            __DIR__.'/config/purifier.php' => config_path('purifier.php'),
+            __DIR__.'/database/migrations' => database_path('migrations'),  // 迁移文件
+//            __DIR__.'/database/seeds/LaravelAdminApiSeeder.php' => database_path('seeds/LaravelAdminApiSeeder.php'),  // 填充文件
+            __DIR__.'/database/seeds/' => database_path('seeds'),
         ]);
 
         // 路由加载
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
 
-        // 迁移文件
-//        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 
     /**
