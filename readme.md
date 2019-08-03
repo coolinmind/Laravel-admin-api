@@ -94,3 +94,9 @@ public function render($request, Exception $exception)
     return parent::render($request, $exception);
 }
 ```
+
+
+
+License
+------------
+`laravel-admin` is licensed under [The MIT License (MIT)](LICENSE).
