@@ -38,14 +38,11 @@ class RolePermission
             if(!in_array($admin_permission_data['id'],$getAllPermissions)) $re = false;
 
         }
-        else
-        {
-            /**
-             * 验证角色
-             * 权限验证为false
-             */
-            $re = $user->hasRole(config('admin-api.root_role_name'));
-        }
+        /**
+         * 验证角色
+         * 权限验证为false
+         */
+        $re = $user->hasRole(config('admin-api.root_role_name'));
 
         if($re)
         {
