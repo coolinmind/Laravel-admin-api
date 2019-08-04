@@ -120,6 +120,7 @@ class LaravelAdminApiSeeder extends Seeder
             'permission_up' => '权限修改',
             'permission_de' => '权限删除',
             'log_list' => '日志list',
+            'admin_api_test' => '新建路由测试',
         ];
         $data = [];
         $i = 1;
