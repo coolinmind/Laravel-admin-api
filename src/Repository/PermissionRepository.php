@@ -136,7 +136,7 @@ class PermissionRepository
         try {
             Permission::where('id',$at['id'])->update([
                 'name' => $at['name'],
-                'route_name' => config('admin-api.route.prefix').'/'.$at['route_name']
+                'route_name' => $at['route_name']
             ]);
             // 同步角色
             $this->role_has_permissions($at['id'],$role);

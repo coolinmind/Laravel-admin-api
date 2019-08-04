@@ -18,13 +18,13 @@ class RolePermission
      */
     public function handle($request, Closure $next)
     {
-        $re = true;
         $url = $request->route()->uri;          // 当前url
-        if($url == '') $re = false;
+        if($url == '') return success::success([],'权限验证异常',success::info);;
 
         // 获取用户信息
         $sign = new SignRepository();
         $user = $sign->get_admin_auth();
+        $re = false;
 
         /*
          * 验证权限
@@ -35,14 +35,20 @@ class RolePermission
         {
             // 所有权限（直接的、继承的）
             $getAllPermissions = $user->getAllPermissions()->pluck('id')->toArray();
-            if(!in_array($admin_permission_data['id'],$getAllPermissions)) $re = false;
+            if(in_array($admin_permission_data['id'],$getAllPermissions))
+            {
+                $re = true;
+            }
 
         }
-        /**
-         * 验证角色
-         * 权限验证为false
-         */
-        $re = $user->hasRole(config('admin-api.root_role_name'));
+        if($re === false)
+        {
+            /**
+             * 验证角色
+             * 权限验证为false
+             */
+            $re = $user->hasRole(config('admin-api.root_role_name'));
+        }
 
         if($re)
         {
