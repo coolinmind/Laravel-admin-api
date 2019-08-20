@@ -5,7 +5,7 @@ namespace Pl\LaravelAdminApi\Middleware;
 use Pl\LaravelAdminApi\Models\Admin_permission;
 use Pl\LaravelAdminApi\Repository\SignRepository;
 use Closure;
-use Pl\LaravelAdminApi\success;
+use App\Http\success;
 
 class RolePermission
 {

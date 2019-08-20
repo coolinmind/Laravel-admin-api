@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Repository{namespace};
+
+use Illuminate\Http\Request;
+use {model};
+
+class {name}Repository
+{
+
+    /**
+     * list
+     */
+    public function {name}_list(Request $request)
+    {
+        $data = [];
+
+        $paginate = $request->input('paginate',10);
+
+        $query = {model_name}::query();
+
+
+        $data = $query->paginate($paginate);
+
+        return $data;
+    }
+
+    /**
+     * 详情
+     */
+    public function {name}_deta(Request $request)
+    {
+        $data = [];
+        $model = new {model_name}();
+        $data = $model->where('id',$request['id'])->first();
+        return $data;
+    }
+
+    /**
+     * 添加
+     * Created by PhpStorm.
+     * @param Request $request
+     * @return bool
+     */
+    public function {name}_add(Request $request)
+    {
+        $re = true;
+        $at = $request->all();
+        $model = new {model_name}();
+
+
+        try {
+            $model->save();
+            $re = true;
+        } catch (\Exception $exception) {
+            $re = false;
+        }
+
+        return $re;
+    }
+
+    /**
+     * 修改
+     * Created by PhpStorm.
+     * @param Request $request
+     * @return bool
+     */
+    public function {name}_up(Request $request)
+    {
+        $re = true;
+        $at = $request->all();
+        $id = $at['id'];
+        $model = new {model_name}();
+
+        $update = [];
+
+        try {
+            $model->where('id',$id)->update($update);
+            $re = true;
+        } catch (\Exception $exception) {
+            $re = false;
+        }
+
+        return $re;
+    }
+
+    /**
+     * 删除
+     * Created by PhpStorm.
+     * @param Request $request
+     */
+    public function {name}_de(Request $request)
+    {
+        $re = true;
+        $at = $request->all();
+        $id = $at['id'];
+        $model = new {model_name}();
+        try {
+            $model->where('id',$id)->delete();
+            $re = true;
+        } catch (\Exception $exception) {
+            $re = false;
+        }
+
+        return $re;
+    }
+}

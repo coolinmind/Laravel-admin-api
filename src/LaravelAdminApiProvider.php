@@ -4,9 +4,17 @@ namespace Pl\LaravelAdminApi;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Arr;
+use Pl\LaravelAdminApi\Console\Commands\LaravelAdminApiCommand;
 
 class LaravelAdminApiProvider extends ServiceProvider
 {
+    /**
+     * 命令
+     * @var array
+     */
+    protected $commands = [
+        LaravelAdminApiCommand::class,
+    ];
 
     /**
      *
@@ -49,10 +57,13 @@ class LaravelAdminApiProvider extends ServiceProvider
             __DIR__.'/database/migrations' => database_path('migrations'),  // 迁移文件
 //            __DIR__.'/database/seeds/LaravelAdminApiSeeder.php' => database_path('seeds/LaravelAdminApiSeeder.php'),  // 填充文件
             __DIR__.'/database/seeds/' => database_path('seeds'),
+            __DIR__.'/Console/Commands/stubs' => app_path('Console/Commands/stubs') // API文件快速生成模板文件发布
         ]);
 
         // 路由加载
         $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
+        // 状态文件发布
+        $this->success_fb();
 
     }
 
@@ -66,6 +77,9 @@ class LaravelAdminApiProvider extends ServiceProvider
 
         // 注册路由中间件
         $this->registerRouteMiddleware();
+
+        // 注册命令
+        $this->commands($this->commands);
     }
 
     /**
@@ -84,5 +98,18 @@ class LaravelAdminApiProvider extends ServiceProvider
         foreach ($this->middlewareGroups as $key => $middleware) {
             app('router')->middlewareGroup($key, $middleware);
         }
+    }
+
+    /**
+     * 状态定义发布
+     * Created by PhpStorm.
+     * User: EricPan
+     * Date: 2019/8/20
+     * Time: 14:17
+     */
+    public function success_fb()
+    {
+        $data = file_get_contents(__DIR__.'/success');
+        file_put_contents(app_path().'/Http/success.php',$data);
     }
 }

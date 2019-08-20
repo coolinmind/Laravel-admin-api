@@ -2,10 +2,11 @@
 
 namespace Pl\LaravelAdminApi\Controller;
 
+use App\Http\success;
 use Pl\LaravelAdminApi\Requests\AdminUserRequest;
 use Pl\LaravelAdminApi\Repository\AdminRepository;
 use Illuminate\Http\Request;
-use Pl\LaravelAdminApi\success;
+
 
 class AdminController extends Controller
 {

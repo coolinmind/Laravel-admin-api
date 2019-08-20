@@ -4,7 +4,7 @@ namespace Pl\LaravelAdminApi\Controller;
 
 use Pl\LaravelAdminApi\Repository\OperationLogRepository;
 use Illuminate\Http\Request;
-use Pl\LaravelAdminApi\success;
+use App\Http\success;
 
 class OperationLogController extends Controller
 {

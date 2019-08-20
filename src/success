@@ -1,0 +1,92 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: EricPan
+ * Date: 2019/8/1
+ * Time: 14:41
+ */
+
+namespace App\Http;
+
+
+class success
+{
+    const info = 201;
+    const code_success = 200;
+    const code_sign_error = 202;
+
+    static $success = 200;
+    static $id = 1301;
+    static $add = 1302;
+    static $update = 1303;
+    static $delete = 1304;
+
+    private static $msg_data = [
+        200     => '成功',
+        1301    => 'id不能为空',
+        1302    => '添加异常',
+        1303    => '修改异常',
+        1304    => '删除异常',
+    ];
+
+    /**
+     * 获取状态msg
+     * Created by PhpStorm.
+     * User: EricPan
+     * Date: 2019/8/20
+     * Time: 11:57
+     * @param $k
+     * @return mixed|string
+     */
+    static function get_msg($k)
+    {
+        $data = self::$msg_data;
+        if(isset($data[$k]))
+        {
+            return $data[$k];
+        }
+        else
+        {
+            return '异常';
+        }
+    }
+
+    /**
+     * 返回方法，第二版
+     * Created by PhpStorm.
+     * User: EricPan
+     * Date: 2019/8/20
+     * Time: 14:00
+     * @param int $code
+     * @param array $data
+     * @return \Illuminate\Http\JsonResponse
+     */
+    static function success_v2($code = 200,$data = [])
+    {
+        return response()->json([
+            'code' => $code,
+            'msg' => self::get_msg($code),
+            'data' => $data,
+        ]);
+    }
+
+    /**
+     * 返回方法
+     * Created by PhpStorm.
+     * User: EricPan
+     * Date: 2019/8/1
+     * Time: 14:41
+     * @param array $data
+     * @param string $msg
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    static function success($data = [],$msg = '成功',$code = success::code_success)
+    {
+        return response()->json([
+            'code' => $code,
+            'msg' => $msg,
+            'data' => $data,
+        ]);
+    }
+}

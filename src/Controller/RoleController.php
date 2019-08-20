@@ -5,7 +5,7 @@ namespace Pl\LaravelAdminApi\Controller;
 use Pl\LaravelAdminApi\Requests\RoleRequest;
 use Pl\LaravelAdminApi\Repository\RoleRepository;
 use Illuminate\Http\Request;
-use Pl\LaravelAdminApi\success;
+use App\Http\success;
 
 class RoleController extends Controller
 {
