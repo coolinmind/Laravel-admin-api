@@ -109,7 +109,11 @@ class LaravelAdminApiProvider extends ServiceProvider
      */
     public function success_fb()
     {
-        $data = file_get_contents(__DIR__.'/success');
-        file_put_contents(app_path().'/Http/success.php',$data);
+        $path = app_path().'/Http/Success.php';
+        if(!is_file($path))
+        {
+            $data = file_get_contents(__DIR__.'/Success');
+            file_put_contents(app_path().'/Http/Success.php',$data);
+        }
     }
 }

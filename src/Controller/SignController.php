@@ -5,7 +5,7 @@ namespace Pl\LaravelAdminApi\Controller;
 use Pl\LaravelAdminApi\Repository\SignRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\success;
+use App\Http\Success;
 
 class SignController extends Controller
 {

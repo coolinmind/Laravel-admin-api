@@ -2,7 +2,7 @@
 
 namespace Pl\LaravelAdminApi\Controller;
 
-use App\Http\success;
+use App\Http\Success;
 use Pl\LaravelAdminApi\Requests\AdminUserRequest;
 use Pl\LaravelAdminApi\Repository\AdminRepository;
 use Illuminate\Http\Request;

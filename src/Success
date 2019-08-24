@@ -9,24 +9,30 @@
 namespace App\Http;
 
 
-class success
-{
-    const info = 201;
-    const code_success = 200;
-    const code_sign_error = 202;
+use Illuminate\Support\Facades\Log;
 
-    static $success = 200;
-    static $id = 1301;
-    static $add = 1302;
-    static $update = 1303;
-    static $delete = 1304;
+class Success
+{
+    const info = 202;
+    const code_success = 200;
+    const code_sign_error = 201;        // 未登陆
+
+    const success = 200;
+    const auth = 201;
+    const params = 215;
+    const id = 1301;
+    const add = 1302;
+    const update = 1303;
+    const delete = 1304;
 
     private static $msg_data = [
-        200     => '成功',
-        1301    => 'id不能为空',
-        1302    => '添加异常',
-        1303    => '修改异常',
-        1304    => '删除异常',
+        self::success       => '成功',
+        self::auth          => '授权异常',
+        self::params        => '参数异常',
+        self::id            => 'id不能为空',
+        self::add           => '添加异常',
+        self::update        => '修改异常',
+        self::delete        => '删除异常',
     ];
 
     /**
@@ -69,6 +75,7 @@ class success
             'data' => $data,
         ]);
     }
+
 
     /**
      * 返回方法

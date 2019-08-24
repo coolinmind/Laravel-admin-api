@@ -4,7 +4,7 @@ namespace Pl\LaravelAdminApi\Middleware;
 
 use Pl\LaravelAdminApi\Repository\SignRepository;
 use Closure;
-use App\Http\success;
+use App\Http\Success;
 
 class AdminAuth
 {

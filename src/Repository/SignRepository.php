@@ -12,7 +12,7 @@ namespace Pl\LaravelAdminApi\Repository;
 use Pl\LaravelAdminApi\Models\Admin_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Pl\LaravelAdminApi\success;
+use App\Http\Success;
 
 class SignRepository
 {
@@ -38,9 +38,9 @@ class SignRepository
 
         if(Auth::guard('admin_api')->attempt(['username'=>$username,'password'=>$password],true))
         {
-            return ['data'=>$data,'code'=>success::code_success,'msg'=>'成功'];
+            return ['data'=>$data,'code'=>Success::code_success,'msg'=>'成功'];
         }
-        return ['data'=>'','code'=>success::info,'msg' => '登录失败'];
+        return ['data'=>'','code'=>Success::info,'msg' => '登录失败'];
     }
 
     /**

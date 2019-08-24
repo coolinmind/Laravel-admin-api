@@ -6,7 +6,7 @@ use App\Http\Requests{namespace}\{name}Request;
 use App\Repository{namespace}\{name}Repository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\success;
+use App\Http\Success;
 
 class {name}Controller extends Controller
 {
@@ -23,7 +23,7 @@ class {name}Controller extends Controller
     {
         $data = $this->{name}Repository->{name}_list($request);
 
-        return success::success_v2(success::$success,$data);
+        return Success::success_v2(Success::success,$data);
     }
 
 
@@ -33,11 +33,11 @@ class {name}Controller extends Controller
     public function {name}_deta(Request $request)
     {
         $id = $request->input('id','');
-        if(!$id) return success::success_v2(success::$id);
+        if(!$id) return Success::success_v2(Success::id);
 
         $data = $this->{name}Repository->{name}_deta($request);
 
-        return success::success_v2(success::$success,$data);
+        return Success::success_v2(Success::success,$data);
     }
 
     /**
@@ -45,13 +45,13 @@ class {name}Controller extends Controller
      */
     public function {name}_add({name}Request $request)
     {
-        $code = success::$success;
+        $code = Success::success;
 
         $re = $this->{name}Repository->{name}_add($request);
 
-        if($re === false) $code = success::$add;
+        if($re === false) $code = Success::add;
 
-        return success::success_v2($code);
+        return Success::success_v2($code);
     }
 
     /**
@@ -60,12 +60,12 @@ class {name}Controller extends Controller
     public function {name}_up({name}Request $request)
     {
         $id = $request->input('id','');
-        if(!$id) return success::success_v2(success::$id);
+        if(!$id) return Success::success_v2(Success::id);
 
         $re = $this->{name}Repository->{name}_up($request);
 
-        $code = $re ? success::$success:success::$update;
-        return success::success_v2($code);
+        $code = $re ? Success::success:Success::update;
+        return Success::success_v2($code);
     }
 
     /**
@@ -74,9 +74,9 @@ class {name}Controller extends Controller
     public function {name}_de(Request $request)
     {
         $id = $request->input('id','');
-        if(!$id) return success::success_v2(success::$id);
+        if(!$id) return Success::success_v2(Success::id);
         $re = $this->{name}Repository->{name}_de($request);
-        $code = $re ? success::$success:success::$delete;
-        return success::success_v2($code);
+        $code = $re ? Success::success:Success::delete;
+        return Success::success_v2($code);
     }
 }

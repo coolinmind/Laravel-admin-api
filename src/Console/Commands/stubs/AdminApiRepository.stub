@@ -9,6 +9,13 @@ class {name}Repository
 {
 
     /**
+     * 添加更改字段
+     * @var array
+     */
+    private $field = [
+    ];
+
+    /**
      * list
      */
     public function {name}_list(Request $request)
@@ -48,6 +55,11 @@ class {name}Repository
         $at = $request->all();
         $model = new {model_name}();
 
+        foreach ($this->field as $v)
+        {
+            $value = isset($at[$v])?$at[$v]:null;
+            $model->$v = $value;
+        }
 
         try {
             $model->save();
@@ -73,6 +85,12 @@ class {name}Repository
         $model = new {model_name}();
 
         $update = [];
+
+        foreach ($this->field as $v)
+        {
+            $value = isset($at[$v])?$at[$v]:null;
+            $update[$v] = $value;
+        }
 
         try {
             $model->where('id',$id)->update($update);

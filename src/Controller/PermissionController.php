@@ -5,7 +5,7 @@ namespace Pl\LaravelAdminApi\Controller;
 use Pl\LaravelAdminApi\Requests\PermissionRequest;
 use Pl\LaravelAdminApi\Repository\PermissionRepository;
 use Illuminate\Http\Request;
-use App\Http\success;
+use App\Http\Success;
 
 class PermissionController extends Controller
 {
