@@ -40,6 +40,11 @@ php artisan vendor:publish --provider="Pl\LaravelAdminApi\LaravelAdminApiProvide
 php artisan migrate
 ```
 
+### 更新 composer
+```
+composer dump-autoload
+```
+
 ### 数据填充
 ```
 php artisan db:seed --class=LaravelAdminApiSeeder
