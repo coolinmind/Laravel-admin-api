@@ -123,4 +123,4 @@ php artisan make:admin-api Admin/Base/Gift 2 model=App/Models/Admin/Gift
 
 License
 ------------
-`laravel-admin` is licensed under [The MIT License (MIT)](LICENSE).
+`laravel-admin-api` is licensed under [The MIT License (MIT)](LICENSE).

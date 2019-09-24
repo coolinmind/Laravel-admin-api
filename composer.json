@@ -1,5 +1,6 @@
 {
     "name": "pl/laravel-admin-api",
+    "license": "MIT",
     "authors": [
         {
             "name": "ericsh",
