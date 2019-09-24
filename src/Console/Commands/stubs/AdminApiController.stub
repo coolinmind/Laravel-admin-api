@@ -19,9 +19,9 @@ class {name}Controller extends Controller
     /**
      * list
      */
-    public function {name}_list(Request $request)
+    public function {name}List(Request $request)
     {
-        $data = $this->{name}Repository->{name}_list($request);
+        $data = $this->{name}Repository->{name}List($request);
 
         return Success::success_v2(Success::success,$data);
     }
@@ -30,12 +30,12 @@ class {name}Controller extends Controller
     /**
      * 详情
      */
-    public function {name}_deta(Request $request)
+    public function {name}Deta(Request $request)
     {
         $id = $request->input('id','');
         if(!$id) return Success::success_v2(Success::id);
 
-        $data = $this->{name}Repository->{name}_deta($request);
+        $data = $this->{name}Repository->{name}Deta($request);
 
         return Success::success_v2(Success::success,$data);
     }
@@ -43,11 +43,11 @@ class {name}Controller extends Controller
     /**
      * 添加
      */
-    public function {name}_add({name}Request $request)
+    public function {name}Add({name}Request $request)
     {
         $code = Success::success;
 
-        $re = $this->{name}Repository->{name}_add($request);
+        $re = $this->{name}Repository->{name}Add($request);
 
         if($re === false) $code = Success::add;
 
@@ -57,12 +57,12 @@ class {name}Controller extends Controller
     /**
      * 修改
      */
-    public function {name}_up({name}Request $request)
+    public function {name}Up({name}Request $request)
     {
         $id = $request->input('id','');
         if(!$id) return Success::success_v2(Success::id);
 
-        $re = $this->{name}Repository->{name}_up($request);
+        $re = $this->{name}Repository->{name}Up($request);
 
         $code = $re ? Success::success:Success::update;
         return Success::success_v2($code);
@@ -71,11 +71,11 @@ class {name}Controller extends Controller
     /**
      * 删除
      */
-    public function {name}_de(Request $request)
+    public function {name}Ue(Request $request)
     {
         $id = $request->input('id','');
         if(!$id) return Success::success_v2(Success::id);
-        $re = $this->{name}Repository->{name}_de($request);
+        $re = $this->{name}Repository->{name}De($request);
         $code = $re ? Success::success:Success::delete;
         return Success::success_v2($code);
     }

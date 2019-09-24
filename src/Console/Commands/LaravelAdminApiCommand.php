@@ -70,6 +70,8 @@ class LaravelAdminApiCommand extends Command
                 $this->create_requests();
 //                // 创建Repository
                 $this->create_repository();
+                // 输出路由模板
+                $this->echoRoute();
             } else if ($type == 2) {
                 // 删除创建文件
                 $this->delete_file();
@@ -347,6 +349,26 @@ class LaravelAdminApiCommand extends Command
             // 输出
             $this->line('<info>文件创建失败:</info> '.$fileNmae);
         }
+    }
+
+    /**
+     * 输出路由模板
+     * Created by PhpStorm.
+     * User: EricPan
+     * Date: 2019/9/24
+     * Time: 15:52
+     */
+    private function echoRoute()
+    {
+        $fileNmae = $this->fileName;
+        $name = strtolower(preg_replace('/(?<=[a-z])([A-Z])/', '-$1', 'fooBarB'));
+        $this->line('');
+        echo '路由模板:'.PHP_EOL;
+        $this->line('$router->post('."'".$name."-list','".$fileNmae."Controller@".$fileNmae."List');    // list");
+        $this->line('$router->post('."'".$name."-deta','".$fileNmae."Controller@".$fileNmae."Deta');    // 详情");
+        $this->line('$router->post('."'".$name."-add','".$fileNmae."Controller@".$fileNmae."Add');      // 添加");
+        $this->line('$router->post('."'".$name."-up','".$fileNmae."Controller@".$fileNmae."Up');        // 修改");
+        $this->line('$router->post('."'".$name."-de','".$fileNmae."Controller@".$fileNmae."De');        // 删除");
     }
 
     /**

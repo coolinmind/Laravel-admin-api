@@ -18,7 +18,7 @@ class {name}Repository
     /**
      * list
      */
-    public function {name}_list(Request $request)
+    public function {name}List(Request $request)
     {
         $data = [];
 
@@ -35,7 +35,7 @@ class {name}Repository
     /**
      * 详情
      */
-    public function {name}_deta(Request $request)
+    public function {name}Deta(Request $request)
     {
         $data = [];
         $model = new {model_name}();
@@ -49,7 +49,7 @@ class {name}Repository
      * @param Request $request
      * @return bool
      */
-    public function {name}_add(Request $request)
+    public function {name}Add(Request $request)
     {
         $re = true;
         $at = $request->all();
@@ -57,8 +57,7 @@ class {name}Repository
 
         foreach ($this->field as $v)
         {
-            $value = isset($at[$v])?$at[$v]:null;
-            $model->$v = $value;
+            isset($at[$v])?$model->$v = $at[$v]:null;
         }
 
         try {
@@ -77,7 +76,7 @@ class {name}Repository
      * @param Request $request
      * @return bool
      */
-    public function {name}_up(Request $request)
+    public function {name}Up(Request $request)
     {
         $re = true;
         $at = $request->all();
@@ -88,8 +87,7 @@ class {name}Repository
 
         foreach ($this->field as $v)
         {
-            $value = isset($at[$v])?$at[$v]:null;
-            $update[$v] = $value;
+            isset($at[$v])?$update[$v] = $at[$v]:null;
         }
 
         try {
@@ -107,7 +105,7 @@ class {name}Repository
      * Created by PhpStorm.
      * @param Request $request
      */
-    public function {name}_de(Request $request)
+    public function {name}De(Request $request)
     {
         $re = true;
         $at = $request->all();
