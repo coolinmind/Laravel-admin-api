@@ -71,7 +71,7 @@ class {name}Controller extends Controller
     /**
      * 删除
      */
-    public function {name}Ue(Request $request)
+    public function {name}De(Request $request)
     {
         $id = $request->input('id','');
         if(!$id) return Success::success_v2(Success::id);

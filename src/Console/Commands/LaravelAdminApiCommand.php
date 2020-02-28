@@ -361,14 +361,14 @@ class LaravelAdminApiCommand extends Command
     private function echoRoute()
     {
         $fileNmae = $this->fileName;
-        $name = strtolower(preg_replace('/(?<=[a-z])([A-Z])/', '-$1', 'fooBarB'));
+        $name = strtolower(preg_replace('/(?<=[a-z])([A-Z])/', '_$1', $fileNmae));
         $this->line('');
         echo '路由模板:'.PHP_EOL;
-        $this->line('$router->post('."'".$name."-list','".$fileNmae."Controller@".$fileNmae."List');    // list");
-        $this->line('$router->post('."'".$name."-deta','".$fileNmae."Controller@".$fileNmae."Deta');    // 详情");
-        $this->line('$router->post('."'".$name."-add','".$fileNmae."Controller@".$fileNmae."Add');      // 添加");
-        $this->line('$router->post('."'".$name."-up','".$fileNmae."Controller@".$fileNmae."Up');        // 修改");
-        $this->line('$router->post('."'".$name."-de','".$fileNmae."Controller@".$fileNmae."De');        // 删除");
+        $this->line('$router->post('."'".$name."_list','".$fileNmae."Controller@".$fileNmae."List');    // list");
+        $this->line('$router->post('."'".$name."_deta','".$fileNmae."Controller@".$fileNmae."Deta');    // 详情");
+        $this->line('$router->post('."'".$name."_add','".$fileNmae."Controller@".$fileNmae."Add');      // 添加");
+        $this->line('$router->post('."'".$name."_up','".$fileNmae."Controller@".$fileNmae."Up');        // 修改");
+        $this->line('$router->post('."'".$name."_de','".$fileNmae."Controller@".$fileNmae."De');        // 删除");
     }
 
     /**
