@@ -42,5 +42,14 @@ return [
          */
         'user' => 1,
 //        'user' => '',
-    ]
+    ],
+
+    /**
+     * 常用类库配置信息
+     */
+    'common' => [
+        // excel 导出下载目录
+        'excel' => 'download/excel',
+
+    ],
 ];

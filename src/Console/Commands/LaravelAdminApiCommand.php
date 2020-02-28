@@ -9,6 +9,7 @@
 namespace Pl\LaravelAdminApi\Console\Commands;
 
 use Illuminate\Console\Command;
+use Pl\LaravelAdminApi\Common\Common;
 
 class LaravelAdminApiCommand extends Command
 {
@@ -361,7 +362,7 @@ class LaravelAdminApiCommand extends Command
     private function echoRoute()
     {
         $fileNmae = $this->fileName;
-        $name = strtolower(preg_replace('/(?<=[a-z])([A-Z])/', '_$1', $fileNmae));
+        $name = Common::CaStrReplaceStr($fileNmae);
         $this->line('');
         echo '路由模板:'.PHP_EOL;
         $this->line('$router->post('."'".$name."_list','".$fileNmae."Controller@".$fileNmae."List');    // list");
