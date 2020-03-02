@@ -29,6 +29,8 @@ class Success
         self::success       => '成功',
         self::auth          => '授权异常',
         self::params        => '参数异常',
+
+        self::info          => '无权限',
         self::id            => 'id不能为空',
         self::add           => '添加异常',
         self::update        => '修改异常',

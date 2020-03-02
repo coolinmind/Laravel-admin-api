@@ -19,7 +19,7 @@ class RolePermission
     public function handle($request, Closure $next)
     {
         $url = $request->route()->uri;          // 当前url
-        if($url == '') return success::success([],'权限验证异常',success::info);;
+        if($url == '') return Success::success([],Success::get_msg(Success::info),Success::info);
 
         // 获取用户信息
         $sign = new SignRepository();
@@ -58,7 +58,7 @@ class RolePermission
         else
         {
             // 返回错误信息
-            return success::success([],'无权限',success::info);
+            return Success::success([],Success::get_msg(Success::info),Success::info);
 
         }
     }
