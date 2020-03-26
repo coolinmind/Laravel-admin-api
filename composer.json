@@ -10,7 +10,7 @@
     "require": {
         "spatie/laravel-permission": "^3.0.0",
         "viest/php-ext-xlswriter-ide-helper": "dev-master",
-        "mews/purifier": "^2.1"
+        "mews/purifier": "^3.0.0"
     },
     "autoload": {
         "psr-0": {
